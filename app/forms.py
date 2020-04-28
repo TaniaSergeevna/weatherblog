@@ -11,6 +11,10 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+    # def validate(self, username, password):
+    #     user = User.query.filter_by(username=username.data).first()
+    #     if user is None or not user.check_password(password.data):
+    #         raise ValidationError('Invalid username or password')
 
 
 class RegistrationForm(FlaskForm):
@@ -36,4 +40,3 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-

@@ -4,8 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h3><p>Hi, {{ current_user.username }}.Weatherblog welcomes you!</p></h3>
-            <h3><p>Today the weather in Zaporizhia!</p></h3>
+            <p>Hi, {{ current_user.username }}.Weatherblog welcomes you!</p>
+            <p>Today the weather in Zaporizhia!</p>
+            <table class="table">
+                <thead>
+                {% for i in date %}
+                <tr>
+                    {% for j in i %}
+                    <th>{{j}}</th>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                </thead>
+            </table>
         </div>
     </div>
 
