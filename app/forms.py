@@ -11,11 +11,6 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
-    # def validate(self, username, password):
-    #     user = User.query.filter_by(username=username.data).first()
-    #     if user is None or not user.check_password(password.data):
-    #         raise ValidationError('Invalid username or password')
-
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -40,3 +35,21 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+
+class PostForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    comments = StringField('Comments', validators=[DataRequired()])
+
+    submit = SubmitField('Add')
+
+    # def validate_username(self, username):
+    #     user = User.query.filter_by(username=username.data).first()
+    #     if user is not None:
+    #         raise ValidationError('Please use a different username.')
+    #
+    # def validate_email(self, email):
+    #     user = User.query.filter_by(email=email.data).first()
+    #     if user is not None:
+    #         raise ValidationError('Please use a different email address.')
