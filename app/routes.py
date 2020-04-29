@@ -67,17 +67,14 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/comments',  methods=['GET', 'POST'])
+@app.route('/comments', methods=['GET', 'POST'])
 @login_required
 def comments():
-    # if current_user.is_authenticated:
-    #     return redirect(url_for('index'))
     form = PostForm()
     if form.validate_on_submit():
         user = Post(username=form.username.data,
                     email=form.email.data,
-                    comments=form.comments.data
-                    )
+                    comments=form.comments.data)
         db.session.add(user)
         db.session.commit()
         flash('Your post is now live!')

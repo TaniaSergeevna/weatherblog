@@ -5,23 +5,22 @@
 
 <div class="container ">
     <h3>Comments</h3>
-    <div class="row">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
-            <br>
-            <br>
-            <table class="table">
-                <thead>
-                {% for post in posts %}
-                <tr>
-                    <th><p>{{post.username}}</p></th>
-                    <th><p>{{post.comments}}</p></th>
-                </tr>
-                {% endfor %}
-                </thead>
-            </table>
-        </div>
-    </div>
+
+    {{ wtf.quick_form(form) }}
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+        {% for post in posts %}
+        <tr>
+            <th><p>{{post.username}}</p></th>
+            <th><p>{{post.comments}}</p></th>
+        </tr>
+        {% endfor %}
+        </thead>
+    </table>
+
 </div>
 
 {% endblock %}
