@@ -1,6 +1,7 @@
 import scrapy
 
 global weather_today
+
 weather_today = []
 
 
